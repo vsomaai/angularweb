@@ -4,14 +4,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { Ng2Webstorage } from 'ng2-webstorage';
 
-import { AngularwebSharedModule, UserRouteAccessService } from './shared';
 import { AngularwebHomeModule } from './home/home.module';
-import { AngularwebAdminModule } from './admin/admin.module';
-import { AngularwebAccountModule } from './account/account.module';
-import { AngularwebEntityModule } from './entities/entity.module';
-
-import { customHttpProvider } from './blocks/interceptor/http.provider';
-import { PaginationConfig } from './blocks/config/uib-pagination.config';
 
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 
@@ -20,8 +13,6 @@ import {
     LayoutRoutingModule,
     NavbarComponent,
     FooterComponent,
-    ProfileService,
-    PageRibbonComponent,
     ErrorComponent
 } from './layouts';
 
@@ -30,25 +21,15 @@ import {
         BrowserModule,
         LayoutRoutingModule,
         Ng2Webstorage.forRoot({ prefix: 'jhi', separator: '-'}),
-        AngularwebSharedModule,
         AngularwebHomeModule,
-        AngularwebAdminModule,
-        AngularwebAccountModule,
-        AngularwebEntityModule,
-        // jhipster-needle-angular-add-module JHipster will add new module here
     ],
     declarations: [
         JhiMainComponent,
         NavbarComponent,
         ErrorComponent,
-        PageRibbonComponent,
         FooterComponent
     ],
     providers: [
-        ProfileService,
-        customHttpProvider(),
-        PaginationConfig,
-        UserRouteAccessService
     ],
     bootstrap: [ JhiMainComponent ]
 })
